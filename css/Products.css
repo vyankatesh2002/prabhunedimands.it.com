@@ -837,6 +837,270 @@ main {
     font-weight: bold;
 }
 
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Astrology Section */
+.astrology-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: #0f172a;
+    position: relative;
+    font-weight: 700;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Service Card */
+.service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    border: 1px solid #fef3c7;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(245, 158, 11, 0.15);
+}
+
+/* Card Image Wrapper */
+.card-image-wrapper {
+    width: 180px;
+    height: 120px;
+    margin: 0 auto 25px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 5px solid #fef3c7;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .card-image-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(245, 158, 11, 0.3);
+}
+
+/* Card Image */
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-card:hover .card-img {
+    transform: scale(1.05);
+}
+
+/* Card Title */
+.card-title {
+    margin: 0 0 15px 0;
+    color: #0f172a;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.service-card:hover .card-title {
+    color: #d97706;
+}
+
+/* Card Description */
+.card-description {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Hero Image Wrapper */
+.hero-image-wrapper {
+    width: 80%;
+    width: 800px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.hero-image-wrapper:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero Image */
+.hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.hero-image-wrapper:hover .hero-img {
+    transform: scale(1.02);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .astrology-section {
+        padding: 80px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto 50px;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
+    
+    .service-card {
+        padding: 25px;
+    }
+    
+    .astrology-section {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .card-description {
+        font-size: 0.9rem;
+    }
+    
+    .card-image-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Animation for section entrance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.astrology-section {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Animation for cards */
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.service-card:nth-child(1) {
+    animation: cardFloat 6s ease-in-out infinite;
+}
+
+.service-card:nth-child(2) {
+    animation: cardFloat 6s ease-in-out infinite 0.5s;
+}
+
+.service-card:nth-child(3) {
+    animation: cardFloat 6s ease-in-out infinite 1s;
+}
 /* ===== Jewellery Types ===== */
 #jewellery-types {
     padding: 100px 0;
@@ -926,7 +1190,7 @@ main {
 /* ===== Planetary Tools ===== */
 .planetary-section {
     padding: 100px 0;
-    background: var(--gradient-dark);
+    background: white;
     position: relative;
     overflow: hidden;
 }
@@ -944,14 +1208,14 @@ main {
 }
 
 .section-title h2 {
-    color: var(--white);
+    color: var(--primary-blue);
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 15px;
 }
 
 .section-subtitle {
-    color: var(--text-light);
+    color: black;
     text-align: center;
     font-size: 1.2rem;
     margin-bottom: 60px;
@@ -993,13 +1257,13 @@ main {
 }
 
 .planetary-card h3 {
-    color: var(--white);
+    color: black;
     font-size: 1.5rem;
     padding: 25px 25px 15px;
 }
 
 .planetary-card p {
-    color: var(--text-light);
+    color: black;
     padding: 0 25px 25px;
     line-height: 1.6;
 }
@@ -1012,6 +1276,7 @@ main {
 
 .energy-tools-grid {
     display: grid;
+    color: black;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
@@ -1077,13 +1342,13 @@ main {
 }
 
 .energy-tool-card h3 {
-    color: var(--primary-dark);
+    color: black;
     font-size: 1.4rem;
     margin-bottom: 15px;
 }
 
 .energy-tool-card p {
-    color: var(--text-dark);
+    color: black;
     opacity: 0.8;
     line-height: 1.6;
 }
@@ -1091,7 +1356,7 @@ main {
 /* ===== Consultation CTA ===== */
 .consultation-cta {
     padding: 100px 0;
-    background: linear-gradient(135deg, #0a0e2a 0%, #1a237e 100%);
+    background: linear-gradient(135deg, #0a0e2a 0%, #323ba7 100%);
     position: relative;
     overflow: hidden;
 }
